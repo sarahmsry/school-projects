@@ -1,0 +1,58 @@
+import java.util.Scanner;
+
+public class solution1{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("Enter number of elements: "); //Prompts user for number of elements of array 
+		int limit = input.nextInt();
+		int arr[] = new int[limit];
+		System.out.println("Enter array values: "); //Prompts user for values of array 
+		for(int i = 0; i < arr.length; i++) { //Stores elements of array based on the number of elements entered  
+			arr[i] = input.nextInt();
+		}
+		int n = arr.length;
+		
+		
+		System.out.println("Enter number of elements: "); //Prompts user for number of elements of second array
+		int limit1 = input.nextInt();
+		int arr1[] = new int[limit1];
+		System.out.println("Enter array values: "); //Prompts user for values of second array
+		for(int i = 0; i < arr1.length; i++) { //Stores elements of second array based on the number of elements entered  
+			arr1[i] = input.nextInt();
+		}
+		int n1 = arr1.length;
+		
+		
+		int arrSize;
+		if(n < n1) { //Checking if the first array is smaller than the second
+			arrSize = n;
+		}else { 
+			arrSize = n1;
+		}
+		
+		
+		int[] result = new int [arrSize]; //Creates new array for the result
+		int k = 0;
+		int temp = -1;
+		
+		for(int i = 0; i < n; i++) { //Time complexity O(mn); traversing through first array and comparing elements with the second
+			for(int j = 0; j < n1; j++) {
+				if(arr1[j] == arr[i] && arr1[j] != temp && arr[i] != temp) {
+					result[k] = arr1[j];
+					temp = result[k];
+					k++;
+				}
+			}
+		}
+		
+		
+		System.out.print("New array: [");
+		for (int i = 0; i < result.length; ++i) { //Prints the new array 
+			if(result[i] > 0) {
+				System.out.print(arr[i] + ",");
+			}
+		}
+		System.out.print("]");
+	}
+	}
