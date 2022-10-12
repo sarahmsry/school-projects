@@ -1,5 +1,5 @@
 import java.util.Stack;
-public class Assignment2{
+public class InfixCalculator{
 	public static void main(String[] args) {
 		String InfixExpression = "10*(2+15)/17";
 		Assignment2 index = new Assignment2();
@@ -88,7 +88,3 @@ public class Assignment2{
 		return (ch == '+' || ch == '-' || ch == '/' || ch == '*' || ch == '^');
 	}
 }
-
-//An array deque would not decrease time or space by a lot, however it would possible make the program faster. 
-//Array deque is not a class which would make the program faster overall, compared to the stack class which 
-//has several functions. 
