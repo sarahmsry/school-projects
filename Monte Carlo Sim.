@@ -1,0 +1,149 @@
+import java.util.*;
+import java.util.Random;
+
+class Main {
+	  public static void main(String[] args) {
+		    /* VARIABLES */
+
+		    // number of computers
+		    int num_computers = 20;
+		    // probability that virus is spread
+		    double prob = 0.1;
+		    // 5 computers are fixed
+		    int max_cleaned = 5;
+		    // Number of simulations to be run
+		    int N = 10000;
+
+		    // first row->checks for currently/newly_infected
+		    // second row->checks if computer has been infected at least once
+		    int[][] network = new int[2][num_computers];
+
+
+		    ArrayList<Integer> infected_computers = new ArrayList<Integer>();
+
+		    int num_infected;
+		    int newly_infected;
+		    double infected_once; // num of infected computers indected at least once
+		    float allComputerInfected=0;; // num of times every computer was infected once
+		    double days;
+		    double sum_days=0;
+		    double sum_infected=0;;
+		    double sum_ExpectedInfection=0;;
+
+		    /* BEGIN SIMULATION */
+		    for (int i = 0; i < N; i++) {
+		      // set starting variables
+		      num_infected = 1; // we start each simulation with 1 infected computer
+		      infected_once = 1;// Since we start with one infected computer, gthis is set to 1
+		      sum_infected = 0;
+		      days = 0;
+
+		      if (!infected_computers.isEmpty()) {
+		        infected_computers.clear();
+		      }
+		      infected_computers.add(0);
+
+		      // reset network and list
+		      //
+		      networkReset(network);
+		      
+		      
+		      /* Morning Routine */
+		      while (num_infected > 0) {
+		        newly_infected = 0;
+
+		        // Simulating how an infected wire, infects non infected
+		        // Perform a Bernoulli trial with prob =0.1
+		        // if success, add computer to newly_infected
+		        for (int x = 1; x <= num_infected; x++) {
+		          for (int y = 0; y < network[0].length; y++) {
+		            if (network[0][y] == 0 && Math.random() <= prob) {
+		              newly_infected++;
+		              network[0][y] = 1;
+		              infected_computers.add(y);
+
+		              if (network[1][y] == 0) {
+		                network[1][y] = 1;
+		                infected_once++;
+		              }
+		            }
+
+		          }
+		        }
+
+		        /* After morning routine */
+		        // set newly_infected to just infected
+		        num_infected += newly_infected;
+
+		        // Add this morning's infections to total infections
+		        sum_infected += num_infected;
+
+		        /* Afternoon Routine */
+		        // if counter (num_infected) <= 5,technician cleans the network
+		        // set num_infected to zero
+		        if (num_infected <= max_cleaned) {
+		          num_infected = 0;
+		        } else { // if counter(num_infected)>5 technician randomly picks 5 to clean
+		          // num_infected - max clean
+		          // set current fixed computers
+		          num_infected -= max_cleaned;
+		          compFix(network, max_cleaned, infected_computers);
+		        }
+		        // update number of days
+		        days++;
+
+		      }
+
+		      sum_days += days;
+		      sum_ExpectedInfection += (sum_infected / days);
+
+		      if (infected_once == 20) {
+		        allComputerInfected++;
+		      }
+
+		    } // End of Simulation
+
+		    /* 5.10 Questions */
+
+		    // A: the expected time it takes to remove the virus from the whole network;
+		    // Sum of days / number of simulations
+		    System.out.println("A.) The expected time it takes to remove the virus from the whole network: " + sum_days / N);
+
+		    // B: the probability that each computer gets infected at least once
+		    // number of times all computers were infected at least once / N
+		    System.out.println("B.) The probability that each computer gets infected at least once: " + allComputerInfected / N);
+
+		    // C:the expected number of computers that get infected
+		    // sum_expected_infections / N
+		    System.out.println("C.) The expected number of computers that get infected: " + sum_ExpectedInfection / N);
+
+		  }
+
+      //Method for Afternoon routine: If the number of infected is greater than 5, technician picks 5 randomly to clean
+      //implements how to pick a random sample from an array and list 
+		  public static int[][] compFix(int[][] network, int max_cleaned, ArrayList<Integer> infected_computers) {
+		    Random rand = new Random();
+		    int fixedComp = 0;
+		    int x;
+
+		    while (fixedComp < max_cleaned) {
+		      x = rand.nextInt(infected_computers.size());
+		      network[0][infected_computers.get(x)] = 0;
+		      infected_computers.remove(x);
+		      fixedComp++;
+		    }
+		    return network;
+		  }
+      //method to rest the network 
+		  public static int[][] networkReset(int[][] network) {
+		    network[0][0] = 1;
+		    network[1][0] = 1;
+
+		    for (int i = 1; i < network[0].length; i++) {
+		      network[0][i] = 0;
+		      network[1][i] = 0;
+		    }
+		    return network;
+		  }
+
+}
