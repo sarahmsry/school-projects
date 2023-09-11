@@ -1,0 +1,54 @@
+
+.lt-bg {
+	background-color: #eefefe;
+}
+.dk-bg {
+	background-color: #e0f0f0;
+}
+.dkst-bg {
+	background-color: #d0e0e0;
+}
+.floatr {
+	float: right;
+	margin: 10px, 100px, 20px, 10px;
+}
+body {
+	background-color: #F9E4C8;
+}
+h1 {
+	font-size: 50px;
+}
+h2 {
+	color: brown;
+}
+h3 {
+	color: brown;
+}
+#header {
+	text-align: center;
+	color: #e5cccc;
+	background-image: url("images/coffee_img10.jpg");
+}
+#footer {
+	text-align: center;
+	font-style: italic;
+	background-color: #8c4b3e;
+	color: #ffffff;
+}
+img { 
+   box-shadow: 5px 5px 5px #444444;
+   width: 80%;
+   margin: 20px;
+}
+
+#header {
+	border-style: solid;
+	border-width: 5px;
+	border-color: #8c4b3e;
+}
+a:link {
+	color: brown;
+}
+a:visited {
+	color: brown;
+}
