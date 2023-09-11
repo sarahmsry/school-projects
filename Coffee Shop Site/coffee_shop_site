@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<title>The Coffee House</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+		<link href="style.css" rel="stylesheet" type="text/css">
+		<link href="https://fonts.googleapis.com/css?family=Lemonada&display=swap" rel="stylesheet">
+	</head>
+	<body>
+		<div id="header">
+			<h1>The Coffee House</h1> 
+			<p> Taste It Your Way </p>
+		</div><hr>
+	<div class="container">	
+		<h2>Welcome to The Coffee House</h2>
+		<p>At The Coffee House, we grind our 100% <a href="https://en.wikipedia.org/wiki/Coffea_arabica"> Arabica Coffee </a> 
+			beans moments before we brew them, giving you a fresh cup of coffee every time.</p>
+	<nav class="navbar navbar-expand-lg navbar-light bg-brown">
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+					</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">About</a>
+						</li>
+							<li class="nav-item">
+								<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Directions</a>
+							</li>
+				</ul>
+					<form class="form-inline my-2 my-lg-0">
+						<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+							<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+					</form>
+			</div>
+		</nav><hr>
+	<div class="row">
+		<div class="col-3">
+			<h3>Select Coffee</h3>
+			<input type="radio" name="Coffee Group 1" value="coffee 1"> Regular <br>
+			<input type="radio" name="Coffee Group 1" value="coffee 2"> Decaf <br>
+			<input type="radio" name="Coffee Group 1" value="coffee 3"> Dark Roast <br><br>
+			QTY <select>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+				<option value="10">10</option>
+				</select>
+					<input type="button" id="inputbutton" value="Order"> 
+					<br><br>
+					Total Due: $<input type="text" id="totaldue">
+		</div>
+    <div class="col-6">
+			<div class="row">
+					<div class="col-2">
+						Light Roast <br><br>
+						Medium Roast <br><br><br><br>
+						Medium-Dark<br><br><br><br>
+						Mild <br><br><br><br>
+						Dark Roast <br><br><br><br>
+						Bold <br><br>
+					</div>
+    <div class="col-8">
+		If you prefer light, fragrant, floral or fruity coffee notes - you'll enjoy a light roast coffee.<br><br>
+		Medium roast coffee is medium brown in color with a non-oily surface. If you prefer a flavorful, traditional cup of coffee you'll enjoy a medium roast.<br><br>
+		This type of roast produces a modest bittersweet aftertaste. If you prefer slight bittersweet notes and deep flavors, you'll enjoy a medium-dark roast.<br><br>
+		Coffee with a mild body is not sharp, pungent or strong. Many light roast coffees normally possess a mild flavor profile.<br><br>
+		The darker the coffee bean, the less acidity will be present in the coffee. If you prefer a heavy mouthfeel and strong flavor, you'll enjoy a dark roast coffee.<br><br>
+		Coffee with a bold body has a strong and noticeable flavor.<br><br>
+	</div>
+	<div class="col-2">
+		Regular<br><br><br><br>
+		Regular<br><br><br><br><br>
+		Premium<br><br><br><br><br>
+		Regular<br><br><br><br>
+		Regular<br><br><br><br>
+		Premium<br><br>
+    </div>
+			</div>
+	</div>
+		<div class="col-sm">
+			<img src="images/coffee_img7.jpg" alt="latte cup">
+			<img src="images/coffee_img8.jpg" alt="latte heart">
+			<img src="images/coffee_img4.jpg" alt="coffee beans and cup">
+		</div>
+	</div>
+		<div id="footer">
+			<p>Copyright &copy; 2019 | Web Design by Sarah Masry</p>
+		</div>
+	</div>
+	<script src="proj.js"></script>
+	</body>
+</html> 
